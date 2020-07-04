@@ -51,7 +51,7 @@ blocks:
     alias: ''
     append: 'False'
     comment: ''
-    file: /tmp/f1
+    file: /tmp/l4
     type: complex
     unbuffered: 'False'
     vlen: '1'
@@ -59,9 +59,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [810, 204]
+    coordinate: [464, 120]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: osmosdr_source_0
   id: osmosdr_source
   parameters:
@@ -416,7 +416,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [171, 294]
+    coordinate: [121, 133]
     rotation: 0
     state: true
 - name: qtgui_freq_sink_x_0
@@ -496,7 +496,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [900, 523]
+    coordinate: [471, 318]
     rotation: 0
     state: true
 - name: qtgui_time_sink_x_0
@@ -593,7 +593,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [913, 362]
+    coordinate: [483, 227]
     rotation: 0
     state: true
 
