@@ -1,6 +1,10 @@
+from flask import Flask
+from flask import request
 import time
 import sys
 import RPi.GPIO as GPIO
+
+app = Flask(__name__)
 
 # Configurables
 NUM_ATTEMPTS = 6 # How many times to repeat the code
@@ -78,9 +82,27 @@ def transmit_code(code):
         time.sleep(extended_delay)
     GPIO.cleanup()
 
-if __name__ == '__main__':
-    for argument in sys.argv[1:]:
-        if DIP == 0:
-            exec('transmit_code(dp0 + ' + str(argument) + ')')
-        elif DIP == 1:
-            exec('transmit_code(dp1 + ' + str(argument) + ')')
+@app.route('/hb/<code>', methods = ['GET', 'POST'])
+def hb(code):
+    if request.method == 'GET':
+        """return the information for <user_id>"""
+        return "yes"
+    if request.method == 'POST':
+        """modify/update the information for <user_id>"""
+        # you can use <user_id>, which is a str but could
+        # changed to be int or whatever you want, along
+        # with your lxml knowledge to make the required
+        # changes
+        data = request.form # a multidict containing POST data
+        print(data)
+        return "ok"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
+
+#if __name__ == '__main__':
+    #for argument in sys.argv[1:]:
+        #if DIP == 0:
+            #exec('transmit_code(dp0 + ' + str(argument) + ')')
+        #elif DIP == 1:
+            #exec('transmit_code(dp1 + ' + str(argument) + ')')
